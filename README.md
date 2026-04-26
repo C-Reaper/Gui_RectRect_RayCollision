@@ -1,193 +1,96 @@
-# Gui_RectRayTest
+# Project README
 
+## Overview
+This project demonstrates a simple graphical user interface (GUI) application that allows users to test ray collision detection between rectangles using C and a custom-made GUI library.
 
-## Project Overview
+## Features
+- Ray collision detection between two rectangles.
+- Basic GUI for visualization and input.
+- Cross-platform support via Makefiles.
 
-This project implements specialized functionality related to rectraytest.
-
-## Core Components
-
-### Main Functionality
-- Implements core algorithms for rectraytest
-- Efficient data structures
-- Optimized performance
-- Clean code organization
-
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
-
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
-
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
-
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
+## Project Structure
+```
+Gui_RectRect_RayCollision/
+├── build/              # .exe files produced by Main.c
+├── src/                # source code directory
+│   ├── Main.c          # entry point of the application
+│   └── Gui.h           # header file for GUI library functions
+├── Makefile.linux      # Linux build configuration
+├── Makefile.windows    # Windows build configuration
+├── Makefile.wine       # Wine build configuration
+└── README.md           # this file
+```
 
 ### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
+- C/C++ Compiler and Debugger (GCC)
 - Make utility
 - Standard development tools
+- X11 libraries for Linux
 
-### Build Steps
-
-1. Navigate to project directory:
+## Build & Run
+### Building on Linux
+To build the application on Linux, navigate to the project directory and run:
 ```bash
-cd Gui_RectRayTest
+make -f Makefile.linux all
 ```
-
-2. Build the project:
+For a clean rebuild:
 ```bash
-make -f Makefile.(os) all
+make -f Makefile.linux clean
+make -f Makefile.linux all
 ```
 
-3. For clean rebuild:
+### Running on Linux
+After building, you can execute the application using:
 ```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
+./build/Main
 ```
 
-4. If there are ./bin and ./libs directories, build libs with:
+### Building and Running on Windows
+To build the application on Windows, navigate to the project directory and run:
 ```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
+make -f Makefile.windows all
 ```
-
-### Build Options
+For a clean rebuild:
 ```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
+make -f Makefile.windows clean
+make -f Makefile.windows all
 ```
 
-## Running the Project
-
-Execute the compiled binary:
-
+After building, you can execute the application using:
 ```bash
-./build/Main(.exe)
+./build/Main.exe
 ```
 
-Or using make:
+### Building on Wine
+To build and run the application using Wine on Linux, navigate to the project directory and run:
 ```bash
-make -f Makefile.(os) exe
+make -f Makefile.wine all
+```
+For a clean rebuild:
+```bash
+make -f Makefile.wine clean
+make -f Makefile.wine all
 ```
 
-## Project Organization
-
-```
-Gui_RectRayTest/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
+After building, you can execute the application using:
+```bash
+wine build/Main.exe
 ```
 
-## Technical Details
+### Building for WebAssembly
+To build the application for WebAssembly using Emscripten, navigate to the project directory and run:
+```bash
+make -f Makefile.web all
+```
+For a clean rebuild:
+```bash
+make -f Makefile.web clean
+make -f Makefile.web all
+```
 
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
+After building, you can serve the application on a web server or use Emscripten's emrun to host it locally:
+```bash
+emrun --no_browser --port 8080 build/index.html
+```
 
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+This README provides a straightforward overview of how to build and run the project across different platforms.
